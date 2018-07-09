@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание пользователя</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+<div class="w3-container w3-margin-top">
+    <div class="w3-card w3-grey">
+        <div class="w3-container w3-green">
+            <h3>Создание нового пользователя</h3>
+        </div>
+    </div>
+
+    <form action="/user/add" method="post">
+        <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+            <h5>Email пользователя:</h5>
+            <input class="w3-input w3-border" type="text" name="email" placeholder="Введите сюда email пользователя..."/>
+
+            <h5>Пароль пользователя:</h5>
+            <input class="w3-input w3-border" type="password" name="password" placeholder="Введите сюда пароль пользователя..."/>
+
+            <h5>Имя пользователя:</h5>
+            <input class="w3-input w3-border" type="text" name="firstName" placeholder="Введите сюда имя пользователя..."/>
+
+            <h5>Фамилию пользователя:</h5>
+            <input class="w3-input w3-border" type="text" name="lastName" placeholder="Введите сюда фамилию пользователя..."/>
+
+            <h5>Роли:</h5>
+
+            <div th:each="role: ${allRoles}">
+                <input name="roles" th:value="${role}" class="w3-check" type="checkbox"/>
+                <label th:text="${role.description}">description role</label>
+            </div>
+
+
+            <br style="height: 24px"/>
+
+            <div class="w3-container w3-margin-top">
+                <input type="submit" class="w3-button w3-right w3-green" value="Завершить создание пользователя"/>
+            </div>
+
+            <br style="height: 24px"/>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание продукта</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin-top">
+        <div class="w3-card w3-grey">
+            <div class="w3-container w3-light-green">
+                <h3>Создание нового продукта</h3>
+            </div>
+        </div>
+
+        <form action="/product/add" method="post">
+            <div class="w3-container w3-margin-top w3-padding w3-light-grey">
+                <h4>Название продукта:</h4>
+                <input class="w3-input w3-border" type="text" name="nameProduct" placeholder="Введите сюда название продукта..."/>
+
+                <h4>Цена продукта:</h4>
+                <input class="w3-input w3-border" type="text" name="price" placeholder="Введите сюда цену продукта, например: 500.50"/>
+
+                <h4>Производитель производителя продукта:</h4>
+                <input class="w3-input w3-border" type="text" name="manufacturerOfManufacturer" placeholder="Введите сюда производитель производителя..."/>
+
+                <h4>Выберите производителя:</h4>
+                <div class="w3-dropdown-hover" >
+                    <select class="form-control" name="manufacturer">
+                        <option th:each="manufactorer : ${manufactorers}" th:value="${manufactorer.id}" th:text="${manufactorer.manufacturerName}"></option>
+                    </select>
+                </div>
+
+                <br style="height: 24px"/>
+
+                <div class="w3-container w3-margin-top">
+                    <input type="submit" class="w3-button w3-right w3-green" value="Завершить создание производителя"/>
+                </div>
+
+                <br style="height: 24px"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Продукты</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<div>
+<div th:replace="menu-header.html :: top-menu"/>
+    <div class="w3-container w3-margin">
+        <div class="w3-card">
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-yellow">
+                <h3>Все продукты что есть на сайте</h3>
+            </div>
+            <div style="height: 12px;"></div>
+            <div class="w3-container w3-light-grey">
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                    <tr>
+                        <!--<th>#</th>-->
+                        <th>ID</th>
+                        <th>Название продукта</th>
+                        <th>Цена</th>
+                        <th>Производитель производителя</th>
+                        <th>Производитель</th>
+                    </tr>
+                    <tr th:each="product : ${products}">
+                        <!--<td th:text="${indices.get(page.id)}">1</td>-->
+                        <td th:text="${product.id}">1</td>
+                        <td th:href="${product.nameProduct}">nameProduct</td>
+                        <td th:text="${product.price}">price</td>
+                        <td th:text="${product.manufacturerOfManufacturer}">manufacturerOfManufacturer</td>
+                        <td th:text="${product.getManufacturer().getManufacturerName()}">manufacturer</td>
+                    </tr>
+                </table>
+            </div>
+            <div style="height: 12px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

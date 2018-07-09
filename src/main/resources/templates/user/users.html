@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div th:replace="menu-header.html :: top-menu"/>
+<div class="w3-container w3-margin">
+    <div class="w3-card">
+        <div class="w3-container w3-light-green">
+            <h3 th:text="'Мы имеем ' + ${users.size()} + ' пользователя'">Мы имеем 23 пользователя</h3>
+            <a href="/user/add" class="w3-button w3-light-blue">Добавить пользователя</a>
+        </div>
+
+        <div style="height: 12px;"></div>
+
+        <div th:each="user : ${users}" class="w3-container">
+            <div class="w3-container w3-light-gray">
+                <div class="w3-container w3-light-green w3-left">
+                    <h3 th:text="'Email: ' + ${user.email}" class="w3-container w3-large">email</h3>
+                    <h5 th:text="'Имя: ' + ${user.firstName}" class="w3-container w3-small">Имя</h5>
+                    <h5 th:text="'Фамилия: ' + ${user.lastName}" class="w3-container w3-small">Фамилия</h3>
+                </div>
+
+                <div style="height: 12px;"></div>
+
+                <div class="w3-container w3-right">
+                    <a th:href="'/user/edit/?userId=' + ${user.id}" href="#" class="w3-button w3-light-blue">Редактировать пользователя</a>
+                    <a th:href="'/user/delete/?userId=' + ${user.id}" href="#" class="w3-button w3-orange">Удалить пользователя</a>
+                </div>
+
+                <div style="height: 12px;"></div>
+            </div>
+
+            <div style="height: 12px;"></div>
+        </div>
+        <div style="height: 12px;"></div>
+    </div>
+</div>
+</body>
+</html>

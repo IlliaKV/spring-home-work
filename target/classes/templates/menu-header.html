@@ -1,0 +1,12 @@
+<div th:fragment="top-menu" class="w3-block w3-gray">
+    <a href="/" class="w3-button w3-tiny">Главная страница</a>
+    <a href="/manufactores" class="w3-button w3-tiny">Производители</a>
+    <a href="/products" class="w3-button w3-tiny">Все продукты</a>
+    <a href="/user/users" class="w3-button w3-tiny">Пользователи</a>
+
+    <span th:if="${user != null}" th:text="'Здравствуй ' + ${user.username} + '! Права доступа: ' + ${roles}"></span>
+
+    <a th:if="${user != null}" href="/logout" class="w3-button w3-red w3-right w3-tiny">Выйти из системы</a>
+    <a th:if="${user == null}" href="/login" class="w3-button w3-green w3-right w3-tiny">Логин / Регистрация</a>
+
+</div>
